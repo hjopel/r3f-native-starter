@@ -1,13 +1,8 @@
 import React, { Suspense } from 'react'
-import { useFrame, Canvas } from '@react-three/fiber/native'
-import { useGLTF, Environment } from '@react-three/drei/native'
-import iphoneModelPath from './assets/Doggo07-processed.glb'
-
-function Model({ url, ...rest }) {
-  const { scene } = useGLTF(url)
-  useFrame(() => (scene.rotation.y += 0.01))
-  return <primitive {...rest} object={scene} />
-}
+import { Canvas } from '@react-three/fiber/native'
+import { Environment } from '@react-three/drei/native'
+import { Doggo } from './Doggo07-processed'
+import hrdPath from './assets/rooitou_park_1k.hdr'
 
 export default function App() {
   return (
@@ -17,8 +12,8 @@ export default function App() {
       <directionalLight intensity={1.1} position={[0.5, 0, 0.866]} />
       <directionalLight intensity={0.8} position={[-6, 2, 2]} />
       <Suspense>
-        <Environment preset="park" />
-        <Model url={iphoneModelPath} />
+        <Environment files={hrdPath} />
+        <Doggo />
       </Suspense>
     </Canvas>
   )
