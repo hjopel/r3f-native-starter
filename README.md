@@ -15,3 +15,7 @@ Once it's done start up devtools with:
 ```bash
 yarn start
 ```
+
+
+## Explanation
+I used the original Doggo07.glb and converted it to a gltf, removed all the unnecessary infos there (considering that we'll load the textures later) and replaced the materials with two default materials. In Blender, I exported the two textures from the original model (head.png & body.jpg) which are then imported in the Doggo07-processed.js
